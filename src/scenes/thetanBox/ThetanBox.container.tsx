@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, TouchableOpacity, FlatList } from 'react-native';
 import AppText from '../../components/AppText/AppText.container';
+import { normalize } from '../../utils/utils';
 
 const configMenuTab = [
   {
@@ -25,19 +26,28 @@ const configMenuTab = [
   },
 ];
 
+const Separator: React.FC = () => {
+  return <View style={styles.bar} />;
+};
+
 const ThetanBox: React.FC = () => {
   const [activeTab, setActiveTab] = React.useState(configMenuTab[0].tab);
+  const flatListRef = React.useRef<FlatList>(null);
   return (
     <FlatList
+      ref={flatListRef}
       data={configMenuTab}
       horizontal={true}
-      ItemSeparatorComponent={() => <View style={styles.bar} />}
-      renderItem={({ item }) => {
+      ItemSeparatorComponent={Separator}
+      renderItem={({ item, index }) => {
         return (
           <TouchableOpacity
             key={item.tab}
             activeOpacity={0.75}
-            onPress={() => setActiveTab(item.tab)}>
+            onPress={() => {
+              flatListRef.current?.scrollToIndex({ index });
+              setActiveTab(item.tab);
+            }}>
             <View
               style={[
                 styles.tabItem,
@@ -56,14 +66,14 @@ const ThetanBox: React.FC = () => {
 
 const styles = StyleSheet.create({
   root: {
-    paddingVertical: 8,
-    paddingHorizontal: 20,
+    paddingVertical: normalize(8),
+    paddingHorizontal: normalize(20),
     backgroundColor: '#271D61',
   },
   tabItem: {
-    paddingVertical: 6,
-    paddingHorizontal: 18,
-    borderRadius: 4,
+    paddingVertical: normalize(6),
+    paddingHorizontal: normalize(18),
+    borderRadius: normalize(4),
     backgroundColor: 'transparent',
   },
   activeTab: {
@@ -71,22 +81,22 @@ const styles = StyleSheet.create({
   },
   textItem: {
     fontWeight: '400',
-    fontSize: 14,
+    fontSize: normalize(14),
   },
   dot: {
     position: 'absolute',
 
-    right: 5,
-    top: 5,
-    width: 5,
-    height: 5,
-    borderRadius: 5 / 2,
+    right: normalize(5),
+    top: normalize(5),
+    width: normalize(5),
+    height: normalize(5),
+    borderRadius: normalize(5 / 2),
     backgroundColor: '#10FF00',
   },
   bar: {
-    marginHorizontal: 4,
-    width: 1,
-    height: 15,
+    marginHorizontal: normalize(4),
+    width: normalize(1),
+    height: normalize(15),
     display: 'flex',
     alignSelf: 'center',
     backgroundColor: 'rgba(255, 255, 255, 0.1)',
