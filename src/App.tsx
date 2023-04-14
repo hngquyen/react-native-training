@@ -11,10 +11,10 @@ function App(): JSX.Element {
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar backgroundColor={backgroundStyle.backgroundColor} />
+      <Header />
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
-        <Header />
         <ThetanBox />
       </ScrollView>
     </SafeAreaView>
