@@ -6,10 +6,12 @@ import MenuTab from './components/MenuTab/MenuTab.container';
 
 const Header: React.FC = () => {
   return (
-    <View style={styles.root}>
-      <AppText style={styles.headerText}>Market</AppText>
+    <>
+      <View style={styles.root}>
+        <AppText style={styles.headerText}>Market</AppText>
+      </View>
       <MenuTab />
-    </View>
+    </>
   );
 };
 
