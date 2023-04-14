@@ -1,12 +1,14 @@
-import { View, StyleSheet } from 'react-native';
+import {View, StyleSheet} from 'react-native';
 import React from 'react';
 import AppText from '../AppText/AppText.container';
-import { normalize } from '../../utils/utils';
+import {normalize} from '../../utils/utils';
+import MenuTab from './components/MenuTab/MenuTab.container';
 
 const Header: React.FC = () => {
   return (
     <View style={styles.root}>
       <AppText style={styles.headerText}>Market</AppText>
+      <MenuTab />
     </View>
   );
 };

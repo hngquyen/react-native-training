@@ -1,13 +1,8 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import MenuTab from './components/MenuTab/MenuTab.container';
+import {View, StyleSheet} from 'react-native';
 
 const ThetanBox: React.FC = () => {
-  return (
-    <View style={styles.root}>
-      <MenuTab />
-    </View>
-  );
+  return <View style={styles.root}>Thetan Box</View>;
 };
 
 const styles = StyleSheet.create({

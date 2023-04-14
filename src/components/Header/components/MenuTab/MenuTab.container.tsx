@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, StyleSheet, TouchableOpacity, FlatList } from 'react-native';
+import {View, StyleSheet, TouchableOpacity, FlatList} from 'react-native';
 import AppText from '~/components/AppText/AppText.container';
-import { normalize } from '~/utils/utils';
+import {normalize} from '~/utils/utils';
 
 const configMenuTab = [
   {
@@ -39,13 +39,13 @@ const MenuTab: React.FC = () => {
       data={configMenuTab}
       horizontal={true}
       ItemSeparatorComponent={Separator}
-      renderItem={({ item, index }) => {
+      renderItem={({item, index}) => {
         return (
           <TouchableOpacity
             key={item.tab}
             activeOpacity={0.75}
             onPress={() => {
-              flatListRef.current?.scrollToIndex({ index });
+              flatListRef.current?.scrollToIndex({index});
               setActiveTab(item.tab);
             }}>
             <View

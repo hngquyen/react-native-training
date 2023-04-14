@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, ScrollView, StatusBar } from 'react-native';
+import {SafeAreaView, ScrollView, StatusBar} from 'react-native';
 import Header from './components/Header/Header.container';
 import ThetanBox from './scenes/thetanBox/ThetanBox.container';
 
