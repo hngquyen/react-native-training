@@ -1,7 +1,7 @@
 import React from 'react';
 import {SafeAreaView, StatusBar, View} from 'react-native';
 import Header from './components/Header/Header';
-import ThetanBox from './scenes/thetanBox/ThetanBox';
+import HomePage from './scenes/home/HomePage';
 
 function App(): JSX.Element {
   const backgroundStyle = {
@@ -13,7 +13,7 @@ function App(): JSX.Element {
       <StatusBar backgroundColor={backgroundStyle.backgroundColor} />
       <Header />
       <View style={backgroundStyle}>
-        <ThetanBox />
+        <HomePage />
       </View>
     </SafeAreaView>
   );
