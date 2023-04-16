@@ -1,7 +1,7 @@
 import React from 'react';
-import {SafeAreaView, ScrollView, StatusBar} from 'react-native';
-import Header from './components/Header/Header.container';
-import ThetanBox from './scenes/thetanBox/ThetanBox.container';
+import {SafeAreaView, StatusBar, View} from 'react-native';
+import Header from './components/Header/Header';
+import ThetanBox from './scenes/thetanBox/ThetanBox';
 
 function App(): JSX.Element {
   const backgroundStyle = {
@@ -12,11 +12,9 @@ function App(): JSX.Element {
     <SafeAreaView style={backgroundStyle}>
       <StatusBar backgroundColor={backgroundStyle.backgroundColor} />
       <Header />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
+      <View style={backgroundStyle}>
         <ThetanBox />
-      </ScrollView>
+      </View>
     </SafeAreaView>
   );
 }
