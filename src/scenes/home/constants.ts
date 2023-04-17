@@ -1,11 +1,4 @@
-export type BannerType = {
-  id: number;
-  image: string;
-};
-
-export type HomePageData = {
-  banners: BannerType[];
-};
+import {HomePageData} from '~/models';
 
 export const homePageData: HomePageData = {
   banners: [

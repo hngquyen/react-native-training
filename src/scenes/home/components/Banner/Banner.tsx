@@ -1,8 +1,8 @@
 import {Dimensions, Image, ScrollView, View} from 'react-native';
 import React from 'react';
-import type {BannerType} from '../../constants';
 import styles from './styles';
 import {toImageUri} from '~/utils/utils';
+import {BannerType} from '~/models';
 
 type Props = {
   data: BannerType[];
@@ -21,8 +21,8 @@ const Banner: React.FC<Props> = ({data}) => {
           data.map(item => {
             return (
               <Image
-                key={item.id}
-                source={{uri: toImageUri(item.image)}}
+                key={item.sortOrder}
+                source={{uri: toImageUri(item.bgImageMobile)}}
                 style={[styles.bannerImage, {width, height}]}
               />
             );
