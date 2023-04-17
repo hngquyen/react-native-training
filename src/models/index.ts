@@ -9,6 +9,14 @@ export type BannerType = {
   status: number;
 };
 
+export type MetricStatsType = {
+  listedCount: number;
+  timeout: number;
+  tradedCount: number;
+  transactionRealValue: number;
+};
+
 export type HomePageData = {
   banners: BannerType[];
+  metricStats: MetricStatsType;
 };

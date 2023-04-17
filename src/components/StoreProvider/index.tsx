@@ -10,6 +10,12 @@ export type RootState = {
 const initialState: RootState = {
   dashBoard: {
     banners: [],
+    metricStats: {
+      listedCount: 0,
+      timeout: 0,
+      tradedCount: 0,
+      transactionRealValue: 0,
+    },
   },
 };
 const rootReducer: React.Reducer<RootState, Action> = (
