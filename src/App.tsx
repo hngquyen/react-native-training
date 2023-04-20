@@ -3,6 +3,7 @@ import {SafeAreaView, ScrollView, StatusBar} from 'react-native';
 import Header from './components/Header/Header';
 import HomePage from './scenes/home/HomePage';
 import {StoreProvider} from './components/StoreProvider';
+import ModalNotification from './components/ModalNotification/ModalNotification';
 function App(): JSX.Element {
   const backgroundStyle = {
     backgroundColor: '#5336D0',
@@ -13,6 +14,7 @@ function App(): JSX.Element {
     <SafeAreaView style={backgroundStyle}>
       <StatusBar />
       <StoreProvider>
+        <ModalNotification />
         <Header />
         <ScrollView>
           <HomePage />
