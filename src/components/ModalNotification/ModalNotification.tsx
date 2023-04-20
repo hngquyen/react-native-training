@@ -1,13 +1,21 @@
-import {DeviceEventEmitter, StyleSheet, Text, View} from 'react-native';
+import {DeviceEventEmitter, StyleSheet, View} from 'react-native';
 import React from 'react';
 import {normalize} from '~/utils/utils';
+import {AppError, ShowModalEmitterType} from './constants';
+import {formatErrorMessage} from './utils';
+import AppText from '../AppText/AppText';
 
 const ModalNotification = () => {
-  const [showModal, setShowModal] = React.useState(false);
+  const [showModal, setShowModal] = React.useState(true);
+  const [state, setState] = React.useState<ShowModalEmitterType>();
   React.useEffect(() => {
-    const showModalEmitter = DeviceEventEmitter.addListener('showModal', () => {
-      setShowModal(true);
-    });
+    const showModalEmitter = DeviceEventEmitter.addListener(
+      'showModal',
+      (value: ShowModalEmitterType) => {
+        setState(value);
+        setShowModal(true);
+      },
+    );
     return () => showModalEmitter.remove();
   }, []);
 
@@ -16,7 +24,7 @@ const ModalNotification = () => {
     if (showModal) {
       timer = setTimeout(() => {
         setShowModal(false);
-      }, 2000);
+      }, 1500);
     }
     return () => {
       clearTimeout(timer);
@@ -27,7 +35,17 @@ const ModalNotification = () => {
   }
   return (
     <View style={[styles.root, showModal ? styles.show : styles.hide]}>
-      <Text>ModalNotification</Text>
+      <View style={styles.container}>
+        <AppText style={styles.message}>
+          {formatErrorMessage(state?.code)}
+        </AppText>
+      </View>
+      <View
+        style={[
+          styles.footer,
+          state?.code !== AppError.NO_ERROR ? styles.red : styles.green,
+        ]}
+      />
     </View>
   );
 };
@@ -37,8 +55,7 @@ export default ModalNotification;
 const styles = StyleSheet.create({
   root: {
     zIndex: 10,
-    padding: normalize(24),
-    backgroundColor: 'red',
+
     justifyContent: 'center',
     alignItems: 'center',
     position: 'absolute',
@@ -50,5 +67,28 @@ const styles = StyleSheet.create({
   },
   show: {
     opacity: 1,
+  },
+  container: {
+    backgroundColor: '#fff',
+    paddingHorizontal: normalize(48),
+    paddingVertical: normalize(32),
+    borderRadius: normalize(12),
+  },
+  footer: {
+    height: normalize(8),
+    width: '80%',
+    borderBottomLeftRadius: normalize(16),
+    borderBottomLRightRadius: normalize(16),
+  },
+  message: {
+    color: '#000',
+    fontWeight: '600',
+    fontSize: normalize(16),
+  },
+  red: {
+    backgroundColor: 'red',
+  },
+  green: {
+    backgroundColor: 'green',
   },
 });
