@@ -1,4 +1,9 @@
-import {BannerType, HomePageData, MetricStatsType} from '~/models';
+import {
+  BannerType,
+  HomePageData,
+  MetricStatsType,
+  HeroRecentlyType,
+} from '~/models';
 
 export type Action =
   | {
@@ -8,11 +13,16 @@ export type Action =
   | {
       type: ActionType.DASHBOARD_UPDATE_METRIC_STATS;
       payload: MetricStatsType;
+    }
+  | {
+      type: ActionType.DASHBOARD_UPDATE_HERO_RECENTLY;
+      payload: HeroRecentlyType[];
     };
 
 export const enum ActionType {
   DASHBOARD_UPDATE_BANNER = 'DASHBOARD_UPDATE_BANNER',
   DASHBOARD_UPDATE_METRIC_STATS = 'DASHBOARD_UPDATE_METRIC_STATS',
+  DASHBOARD_UPDATE_HERO_RECENTLY = 'DASHBOARD_UPDATE_HERO_RECENTLY',
 }
 
 export type DashboardReducer = (

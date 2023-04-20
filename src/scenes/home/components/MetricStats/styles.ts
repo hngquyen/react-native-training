@@ -3,6 +3,8 @@ import {normalize} from '~/utils/utils';
 
 export default StyleSheet.create({
   root: {
+    marginHorizontal: normalize(20),
+    marginBottom: normalize(28),
     marginTop: normalize(16),
     display: 'flex',
     flexDirection: 'column',

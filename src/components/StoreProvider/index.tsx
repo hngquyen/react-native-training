@@ -16,6 +16,7 @@ const initialState: RootState = {
       tradedCount: 0,
       transactionRealValue: 0,
     },
+    heroRecentlyLists: [],
   },
 };
 const rootReducer: React.Reducer<RootState, Action> = (

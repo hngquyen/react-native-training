@@ -10,6 +10,7 @@ export const dashboardReducer: DashboardReducer = (
       tradedCount: 0,
       transactionRealValue: 0,
     },
+    heroRecentlyLists: [],
   },
   action,
 ) => {
@@ -24,6 +25,12 @@ export const dashboardReducer: DashboardReducer = (
       return {
         ...state,
         metricStats: action.payload,
+      };
+    }
+    case ActionType.DASHBOARD_UPDATE_HERO_RECENTLY: {
+      return {
+        ...state,
+        heroRecentlyLists: action.payload,
       };
     }
     default:

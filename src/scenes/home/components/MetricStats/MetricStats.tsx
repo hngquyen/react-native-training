@@ -9,7 +9,7 @@ import AppText from '~/components/AppText/AppText';
 const MetricStats: React.FC = () => {
   const [filterKey, setFilterKey] = React.useState(GroupCount.Time_24_hours);
   const {state, dispatch} = React.useContext(StoreContext);
-  const data = React.useMemo(() => state.dashBoard.metricStats, [state]);
+  const data = state.dashBoard.metricStats;
 
   React.useEffect(() => {
     fetch(

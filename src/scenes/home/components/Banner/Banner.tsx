@@ -10,7 +10,7 @@ const Banner: React.FC = () => {
   const height = (width * 134) / 375;
 
   const {state, dispatch} = React.useContext(StoreContext);
-  const data = React.useMemo(() => state.dashBoard.banners, [state]);
+  const data = state.dashBoard.banners;
 
   React.useEffect(() => {
     fetch('https://data.thetanarena.com/thetan/v1/mkpdashboard/banner/getlist')

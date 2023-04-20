@@ -8,8 +8,6 @@ export default StyleSheet.create({
     backgroundColor: '#271D61',
   },
   tabItem: {
-    paddingVertical: normalize(6),
-    paddingHorizontal: normalize(18),
     borderRadius: normalize(4),
     backgroundColor: 'transparent',
   },
@@ -18,7 +16,11 @@ export default StyleSheet.create({
   },
   textItem: {
     fontWeight: '400',
+    paddingVertical: normalize(6),
+    paddingHorizontal: normalize(18),
+
     fontSize: normalize(14),
+    lineHeight: normalize(22),
   },
   dot: {
     position: 'absolute',

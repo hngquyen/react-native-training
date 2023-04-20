@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView, StatusBar, View} from 'react-native';
+import {SafeAreaView, ScrollView, StatusBar} from 'react-native';
 import Header from './components/Header/Header';
 import HomePage from './scenes/home/HomePage';
 import {StoreProvider} from './components/StoreProvider';
@@ -13,9 +13,9 @@ function App(): JSX.Element {
       <StatusBar backgroundColor={backgroundStyle.backgroundColor} />
       <StoreProvider>
         <Header />
-        <View style={backgroundStyle}>
+        <ScrollView style={backgroundStyle}>
           <HomePage />
-        </View>
+        </ScrollView>
       </StoreProvider>
     </SafeAreaView>
   );
