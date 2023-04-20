@@ -9,7 +9,7 @@ import LinearGradient from 'react-native-linear-gradient';
 type Props = {
   data: HeroItemType;
 };
-const HeroCard: React.FC<Props> = ({data}) => {
+const CosmeticCard: React.FC<Props> = ({data}) => {
   return (
     <View>
       <TouchableOpacity style={styles.item}>
@@ -75,4 +75,4 @@ const HeroCard: React.FC<Props> = ({data}) => {
   );
 };
 
-export default HeroCard;
+export default CosmeticCard;

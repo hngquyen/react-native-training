@@ -33,7 +33,7 @@ export type SystemCurrencyType = {
   value: number;
 };
 
-export type HeroRecentlyType = {
+export type HeroItemType = {
   battleCap: number;
   battleCapMax: number;
   created: string;
@@ -65,8 +65,40 @@ export type HeroRecentlyType = {
   trophyClass: number;
 };
 
+export const enum CosmeticType {
+  AVATAR = 1,
+  AVATAR_FRAME = 2,
+  EMOTE = 3,
+  SPACESHIP = 4,
+}
+export type CosmeticItemType = {
+  blockchainId: number;
+  cosmeticInfo: {status: number; typeId: number; type: number; rarity: number};
+  createdAt: string;
+  saleInfo: {
+    price: {
+      decimals: number;
+      name: string;
+      type: number;
+      value: number;
+    };
+  };
+  userAddress: string;
+  cosmeticRarity: number;
+  cosmeticType: number;
+  cosmeticName: string;
+  id: string;
+  lastModified: string;
+  ownerAddress: string;
+  refId: string;
+  refType: number;
+  timestamp: number;
+  tokenId: number;
+};
+
 export type HomePageData = {
   banners: BannerType[];
   metricStats: MetricStatsType;
-  heroRecentlyLists: HeroRecentlyType[];
+  heroRecentlyLists: HeroItemType[];
+  cosmeticRecentlyLists: CosmeticItemType[];
 };

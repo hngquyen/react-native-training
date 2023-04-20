@@ -2,7 +2,8 @@ import {
   BannerType,
   HomePageData,
   MetricStatsType,
-  HeroRecentlyType,
+  HeroItemType,
+  CosmeticItemType,
 } from '~/models';
 
 export type Action =
@@ -16,13 +17,18 @@ export type Action =
     }
   | {
       type: ActionType.DASHBOARD_UPDATE_HERO_RECENTLY;
-      payload: HeroRecentlyType[];
+      payload: HeroItemType[];
+    }
+  | {
+      type: ActionType.DASHBOARD_UPDATE_COSMETIC_RECENTLY;
+      payload: CosmeticItemType[];
     };
 
 export const enum ActionType {
   DASHBOARD_UPDATE_BANNER = 'DASHBOARD_UPDATE_BANNER',
   DASHBOARD_UPDATE_METRIC_STATS = 'DASHBOARD_UPDATE_METRIC_STATS',
   DASHBOARD_UPDATE_HERO_RECENTLY = 'DASHBOARD_UPDATE_HERO_RECENTLY',
+  DASHBOARD_UPDATE_COSMETIC_RECENTLY = 'DASHBOARD_UPDATE_COSMETIC_RECENTLY',
 }
 
 export type DashboardReducer = (

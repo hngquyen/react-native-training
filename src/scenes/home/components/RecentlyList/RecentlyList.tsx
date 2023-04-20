@@ -38,6 +38,9 @@ const RecentlyList: React.FC = () => {
         </View>
       </View>
       <View style={styles.content}>{renderContent()}</View>
+      <TouchableOpacity style={styles.viewMore}>
+        <AppText style={styles.viewMoreText}>View more recently listed</AppText>
+      </TouchableOpacity>
     </View>
   );
 };

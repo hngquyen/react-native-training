@@ -46,4 +46,19 @@ export default StyleSheet.create({
   content: {
     marginTop: normalize(19),
   },
+  viewMore: {
+    paddingHorizontal: normalize(24),
+    paddingVertical: normalize(8),
+    backgroundColor: '#5336D0',
+    width: normalize(217),
+    alignSelf: 'center',
+    borderRadius: normalize(4),
+    marginTop: normalize(24),
+  },
+  viewMoreText: {
+    fontWeight: '600',
+    fontSize: normalize(14),
+    lineHeight: normalize(24),
+    textAlign: 'center',
+  },
 });

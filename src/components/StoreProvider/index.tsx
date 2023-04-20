@@ -17,6 +17,7 @@ const initialState: RootState = {
       transactionRealValue: 0,
     },
     heroRecentlyLists: [],
+    cosmeticRecentlyLists: [],
   },
 };
 const rootReducer: React.Reducer<RootState, Action> = (
