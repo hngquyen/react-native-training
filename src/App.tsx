@@ -6,14 +6,15 @@ import {StoreProvider} from './components/StoreProvider';
 function App(): JSX.Element {
   const backgroundStyle = {
     backgroundColor: '#5336D0',
+    flex: 1,
   };
 
   return (
     <SafeAreaView style={backgroundStyle}>
-      <StatusBar backgroundColor={backgroundStyle.backgroundColor} />
+      <StatusBar />
       <StoreProvider>
         <Header />
-        <ScrollView style={backgroundStyle}>
+        <ScrollView>
           <HomePage />
         </ScrollView>
       </StoreProvider>
