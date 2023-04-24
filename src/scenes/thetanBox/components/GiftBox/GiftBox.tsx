@@ -1,4 +1,4 @@
-import {View, Text, Image} from 'react-native';
+import {View, Text} from 'react-native';
 import React from 'react';
 import styles from './styles';
 import GiftBoxCard from '../GiftBoxCard/GiftBoxCard';
@@ -12,10 +12,10 @@ const GiftBox: React.FC<Props> = ({data}) => {
   return (
     <View style={styles.root}>
       <View style={styles.header}>
-        <Image
+        {/* <Image
           style={styles.bgImage}
           source={require('../../../../../assets/svg/bg_giftbox.svg')}
-        />
+        /> */}
         <Text style={styles.headerText}>Gift Box</Text>
       </View>
       <View style={styles.container}>

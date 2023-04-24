@@ -7,6 +7,7 @@ import {BuyTab, categoryMap} from './constants';
 import AppText from 'components/AppText/AppText';
 import styles from './styles';
 import Pagination from 'components/Pagination/Pagination';
+import {icFilter, icSort} from 'src/assets/img';
 
 const Buy = () => {
   const {state, dispatch} = React.useContext(StoreContext);
@@ -27,31 +28,43 @@ const Buy = () => {
   }, [dispatch]);
 
   return (
-    <ScrollView style={styles.root}>
-      <View style={styles.category}>
-        {categoryMap.map(item => (
-          <TouchableOpacity
-            style={[styles.tabContainer, tab === item.id && styles.active]}
-            key={item.title}
-            onPress={() => setTab(item.id)}>
-            <Image source={item.img} alt="iconTab" style={styles.iconTab} />
-            <AppText style={styles.tabText}>{item.title}</AppText>
-          </TouchableOpacity>
-        ))}
-      </View>
-      <View style={styles.container}>
-        <View style={styles.content}>
-          {data.map((item, index) => {
-            return <HeroCard data={item} key={index} />;
-          })}
+    <View style={styles.root}>
+      <ScrollView>
+        <View style={styles.category}>
+          {categoryMap.map(item => (
+            <TouchableOpacity
+              style={[styles.tabContainer, tab === item.id && styles.active]}
+              key={item.title}
+              onPress={() => setTab(item.id)}>
+              <Image source={item.img} alt="iconTab" style={styles.iconTab} />
+              <AppText style={styles.tabText}>{item.title}</AppText>
+            </TouchableOpacity>
+          ))}
         </View>
+        <View style={styles.container}>
+          <View style={styles.content}>
+            {data.map((item, index) => {
+              return <HeroCard data={item} key={index} />;
+            })}
+          </View>
+        </View>
+        <Pagination
+          page={pageNumber}
+          totalPages={5}
+          onPageChange={page => setPageNumber(page)}
+        />
+      </ScrollView>
+      <View style={styles.filterContainer}>
+        <TouchableOpacity style={styles.filterItem}>
+          <Image source={icFilter} />
+          <AppText>Filter</AppText>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.filterItem}>
+          <Image source={icSort} />
+          <AppText>Sort</AppText>
+        </TouchableOpacity>
       </View>
-      <Pagination
-        page={pageNumber}
-        totalPages={5}
-        onPageChange={page => setPageNumber(page)}
-      />
-    </ScrollView>
+    </View>
   );
 };
 

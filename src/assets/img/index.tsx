@@ -6,3 +6,5 @@ export const icItemsTraded = require('./ic_itemsTraded.png');
 export const icThc = require('./ic_thc.png');
 export const icTotalListed = require('./ic_totalListed.png');
 export const icTransVolume = require('./ic_transVolume.png');
+export const icFilter = require('./ic_filter.png');
+export const icSort = require('./ic_sort.png');
