@@ -1,20 +1,25 @@
 import React from 'react';
-import {SafeAreaView, StatusBar, View} from 'react-native';
+import {SafeAreaView, ScrollView, StatusBar} from 'react-native';
 import Header from './components/Header/Header';
-import ThetanBox from './scenes/thetanBox/ThetanBox';
-
+import HomePage from './scenes/home/HomePage';
+import {StoreProvider} from './components/StoreProvider';
+import ModalNotification from './components/ModalNotification/ModalNotification';
 function App(): JSX.Element {
   const backgroundStyle = {
     backgroundColor: '#5336D0',
+    flex: 1,
   };
 
   return (
     <SafeAreaView style={backgroundStyle}>
-      <StatusBar backgroundColor={backgroundStyle.backgroundColor} />
-      <Header />
-      <View style={backgroundStyle}>
-        <ThetanBox />
-      </View>
+      <StatusBar />
+      <StoreProvider>
+        <ModalNotification />
+        <Header />
+        <ScrollView>
+          <HomePage />
+        </ScrollView>
+      </StoreProvider>
     </SafeAreaView>
   );
 }
