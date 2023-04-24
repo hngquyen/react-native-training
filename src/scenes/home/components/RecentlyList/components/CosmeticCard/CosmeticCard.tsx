@@ -1,10 +1,10 @@
 import {Image, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import styles from './styles';
-import {toImageUri} from '~/utils/utils';
-import AppText from '~/components/AppText/AppText';
-import {HeroItemType} from '~/models';
 import LinearGradient from 'react-native-linear-gradient';
+import {HeroItemType} from 'src/models';
+import {toImageUri} from 'src/utils/utils';
+import AppText from 'components/AppText/AppText';
 
 type Props = {
   data: HeroItemType;

@@ -1,9 +1,9 @@
 import {View} from 'react-native';
 import React from 'react';
 import styles from './styles';
-import {StoreContext} from '~/components/StoreProvider';
-import {ActionType} from '~/store/type';
 import CosmeticCard from '../CosmeticCard/CosmeticCard';
+import {StoreContext} from 'components/StoreProvider';
+import {ActionType} from 'src/store/type';
 
 const CosmeticRecently: React.FC = () => {
   const {state, dispatch} = React.useContext(StoreContext);

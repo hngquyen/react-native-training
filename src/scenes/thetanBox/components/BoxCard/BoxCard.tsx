@@ -2,8 +2,8 @@ import {View, Image} from 'react-native';
 import React from 'react';
 import styles from './styles';
 import type {SystemBoxType} from '../../constants';
-import {toImageUri} from '~/utils/utils';
-import AppText from '~/components/AppText/AppText';
+import AppText from 'components/AppText/AppText';
+import {toImageUri} from 'src/utils/utils';
 
 type Props = {
   data: SystemBoxType;

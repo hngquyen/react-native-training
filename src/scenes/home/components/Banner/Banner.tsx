@@ -1,9 +1,9 @@
 import {Dimensions, Image, ScrollView, View} from 'react-native';
 import React from 'react';
 import styles from './styles';
-import {toImageUri} from '~/utils/utils';
-import {StoreContext} from '~/components/StoreProvider';
-import {ActionType} from '~/store/type';
+import {StoreContext} from 'components/StoreProvider';
+import {ActionType} from 'src/store/type';
+import {toImageUri} from 'src/utils/utils';
 
 const Banner: React.FC = () => {
   const {width} = Dimensions.get('window');

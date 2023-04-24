@@ -2,8 +2,8 @@ import {View, Image} from 'react-native';
 import React from 'react';
 import styles from './styles';
 import type {GiftBoxType} from '../../constants';
-import {toImageUri} from '~/utils/utils';
-import AppText from '~/components/AppText/AppText';
+import {toImageUri} from 'src/utils/utils';
+import AppText from 'components/AppText/AppText';
 
 type Props = {
   data: GiftBoxType;

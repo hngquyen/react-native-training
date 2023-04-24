@@ -1,4 +1,4 @@
-import {HomePageData} from '~/models';
+import {HomePageData} from 'src/models';
 import {ActionType, DashboardReducer} from './type';
 
 export const dashboardReducer: DashboardReducer = (
@@ -11,6 +11,7 @@ export const dashboardReducer: DashboardReducer = (
       transactionRealValue: 0,
     },
     heroRecentlyLists: [],
+    cosmeticRecentlyLists: [],
   },
   action,
 ) => {

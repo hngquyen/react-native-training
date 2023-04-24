@@ -1,12 +1,11 @@
 import {StyleSheet} from 'react-native';
-import {normalize} from '~/utils/utils';
+import {normalize} from 'src/utils/utils';
 
 export default StyleSheet.create({
   root: {
     display: 'flex',
     flexDirection: 'column',
     gap: normalize(12),
-    // alignItems: 'center',
     backgroundColor: '#0F0933',
     width: '100%',
   },

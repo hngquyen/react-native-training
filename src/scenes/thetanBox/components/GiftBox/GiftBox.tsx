@@ -1,8 +1,8 @@
 import {View, Text, Image} from 'react-native';
 import React from 'react';
 import styles from './styles';
-import type {GiftBoxType} from '../../constants';
 import GiftBoxCard from '../GiftBoxCard/GiftBoxCard';
+import {GiftBoxType} from '../../constants';
 
 type Props = {
   data: GiftBoxType[];

@@ -1,7 +1,7 @@
 import React, {createContext} from 'react';
-import {HomePageData} from '~/models';
-import {dashboardReducer} from '~/store/dashBoard';
-import {Action} from '~/store/type';
+import {HomePageData} from 'src/models';
+import {dashboardReducer} from 'src/store/dashBoard';
+import {Action} from 'src/store/type';
 
 export type RootState = {
   dashBoard: HomePageData;

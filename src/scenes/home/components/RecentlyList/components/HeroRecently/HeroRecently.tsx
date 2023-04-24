@@ -1,9 +1,9 @@
 import {View} from 'react-native';
 import React from 'react';
 import styles from './styles';
-import {StoreContext} from '~/components/StoreProvider';
-import {ActionType} from '~/store/type';
 import HeroCard from '../HeroCard/HeroCard';
+import {StoreContext} from 'components/StoreProvider';
+import {ActionType} from 'src/store/type';
 
 const HeroRecently: React.FC = () => {
   const {state, dispatch} = React.useContext(StoreContext);
