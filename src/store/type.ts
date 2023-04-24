@@ -4,7 +4,7 @@ import {
   MetricStatsType,
   HeroItemType,
   CosmeticItemType,
-} from '~/models';
+} from 'src/models';
 
 export type Action =
   | {

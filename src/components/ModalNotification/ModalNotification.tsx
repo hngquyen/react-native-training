@@ -1,9 +1,9 @@
 import {DeviceEventEmitter, StyleSheet, View} from 'react-native';
 import React from 'react';
-import {normalize} from '~/utils/utils';
 import {AppError, ShowModalEmitterType} from './constants';
 import {formatErrorMessage} from './utils';
-import AppText from '../AppText/AppText';
+import AppText from 'components/AppText/AppText';
+import {normalize} from 'src/utils/utils';
 
 const ModalNotification = () => {
   const [showModal, setShowModal] = React.useState(true);
