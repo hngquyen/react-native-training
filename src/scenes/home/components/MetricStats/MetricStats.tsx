@@ -2,9 +2,9 @@ import {Image, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import styles from './styles';
 import {GroupCount, filterList} from './constants';
-import {ActionType} from '~/store/type';
-import {StoreContext} from '~/components/StoreProvider';
-import AppText from '~/components/AppText/AppText';
+import {StoreContext} from 'components/StoreProvider';
+import AppText from 'components/AppText/AppText';
+import {ActionType} from 'src/store/type';
 
 const MetricStats: React.FC = () => {
   const [filterKey, setFilterKey] = React.useState(GroupCount.Time_24_hours);

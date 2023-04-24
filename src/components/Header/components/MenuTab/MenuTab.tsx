@@ -2,7 +2,7 @@ import React from 'react';
 import {View, TouchableOpacity, FlatList} from 'react-native';
 import styles from './styles';
 import {configMenuTab} from './constants';
-import AppText from '~/components/AppText/AppText';
+import AppText from 'components/AppText/AppText';
 
 const Separator: React.FC = () => {
   return <View style={styles.bar} />;
