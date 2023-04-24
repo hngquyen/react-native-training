@@ -42,7 +42,7 @@
       "eslint --ext .tsx --ext .ts src/ --fix"
     ],
     "./src/**": [
-      "prettier --write src"
+      "prettier --write src --ignore-unknown"
     ]
   },
   "husky": {

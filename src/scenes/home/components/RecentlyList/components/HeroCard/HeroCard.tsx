@@ -5,6 +5,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import {HeroItemType} from 'src/models';
 import {toImageUri} from 'src/utils/utils';
 import AppText from 'components/AppText/AppText';
+import {icThc} from 'src/assets/img';
 
 type Props = {
   data: HeroItemType;
@@ -54,11 +55,7 @@ const HeroCard: React.FC<Props> = ({data}) => {
             <View style={styles.releaseContainer}>
               <AppText style={styles.releaseText}>Price</AppText>
               <View style={styles.priceTHC}>
-                <Image
-                  style={styles.thcIcon}
-                  alt="thcIcon"
-                  source={require('../../../../../../../assets/img/ic_thc.png')}
-                />
+                <Image style={styles.thcIcon} alt="thcIcon" source={icThc} />
                 <AppText style={styles.thcText}>
                   {data.price / Math.pow(10, 8)} THC
                 </AppText>

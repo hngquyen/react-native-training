@@ -5,6 +5,7 @@ import {GroupCount, filterList} from './constants';
 import {StoreContext} from 'components/StoreProvider';
 import AppText from 'components/AppText/AppText';
 import {ActionType} from 'src/store/type';
+import {icItemsTraded, icTotalListed, icTransVolume} from 'src/assets/img';
 
 const MetricStats: React.FC = () => {
   const [filterKey, setFilterKey] = React.useState(GroupCount.Time_24_hours);
@@ -39,10 +40,7 @@ const MetricStats: React.FC = () => {
       </View>
       <View style={styles.content}>
         <View style={styles.item}>
-          <Image
-            style={styles.icon}
-            source={require('../../../../../assets/img/ic_totalListed.png')}
-          />
+          <Image style={styles.icon} source={icTotalListed} />
           <View style={styles.right}>
             <View style={styles.wrapLabel}>
               <AppText style={styles.label}>Total Listed</AppText>
@@ -51,10 +49,7 @@ const MetricStats: React.FC = () => {
           </View>
         </View>
         <View style={styles.item}>
-          <Image
-            style={styles.icon}
-            source={require('../../../../../assets/img/ic_transVolume.png')}
-          />
+          <Image style={styles.icon} source={icTransVolume} />
           <View style={styles.right}>
             <View style={styles.wrapLabel}>
               <AppText style={styles.label}>Transaction Volume (THC) </AppText>
@@ -63,10 +58,7 @@ const MetricStats: React.FC = () => {
           </View>
         </View>
         <View style={styles.item}>
-          <Image
-            style={styles.icon}
-            source={require('../../../../../assets/img/ic_itemsTraded.png')}
-          />
+          <Image style={styles.icon} source={icItemsTraded} />
           <View style={styles.right}>
             <View style={styles.wrapLabel}>
               <AppText style={styles.label}>Items Traded</AppText>

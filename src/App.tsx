@@ -1,7 +1,7 @@
 import React from 'react';
 import {SafeAreaView, ScrollView, StatusBar} from 'react-native';
 import Header from './components/Header/Header';
-import HomePage from './scenes/home/HomePage';
+import Buy from './scenes/buy/Buy';
 import {StoreProvider} from './components/StoreProvider';
 import ModalNotification from './components/ModalNotification/ModalNotification';
 function App(): JSX.Element {
@@ -17,7 +17,7 @@ function App(): JSX.Element {
         <ModalNotification />
         <Header />
         <ScrollView>
-          <HomePage />
+          <Buy />
         </ScrollView>
       </StoreProvider>
     </SafeAreaView>
