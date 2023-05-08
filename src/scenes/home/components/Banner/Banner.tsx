@@ -1,27 +1,21 @@
 import {Dimensions, Image, ScrollView, View} from 'react-native';
 import React from 'react';
 import styles from './styles';
-import {toImageUri} from '~/utils/utils';
-import {StoreContext} from '~/components/StoreProvider';
-import {ActionType} from '~/store/type';
+import {useAppDispatch, useAppSelector} from 'src/store/hooks';
+import {bannerActions} from 'src/features/banner/bannerSlice';
+import {toImageUri} from 'src/utils/utils';
 
 const Banner: React.FC = () => {
   const {width} = Dimensions.get('window');
   const height = (width * 134) / 375;
 
-  const {state, dispatch} = React.useContext(StoreContext);
-  const data = state.dashBoard.banners;
+  const dispatch = useAppDispatch();
+  const data = useAppSelector(state => state.banner.data);
 
   React.useEffect(() => {
-    fetch('https://data.thetanarena.com/thetan/v1/mkpdashboard/banner/getlist')
-      .then(response => response.json())
-      .then(dataResponse => {
-        dispatch({
-          type: ActionType.DASHBOARD_UPDATE_BANNER,
-          payload: dataResponse.data.listBanner,
-        });
-      });
+    dispatch(bannerActions.fetchData());
   }, [dispatch]);
+
   return (
     <View style={styles.root}>
       <ScrollView

@@ -1,9 +1,10 @@
 import React from 'react';
-import {SafeAreaView, ScrollView, StatusBar} from 'react-native';
+import {SafeAreaView, StatusBar, View} from 'react-native';
 import Header from './components/Header/Header';
 import HomePage from './scenes/home/HomePage';
-import {StoreProvider} from './components/StoreProvider';
 import ModalNotification from './components/ModalNotification/ModalNotification';
+import {Provider} from 'react-redux';
+import store from './store';
 function App(): JSX.Element {
   const backgroundStyle = {
     backgroundColor: '#5336D0',
@@ -13,13 +14,13 @@ function App(): JSX.Element {
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar />
-      <StoreProvider>
+      <Provider store={store}>
         <ModalNotification />
         <Header />
-        <ScrollView>
+        <View>
           <HomePage />
-        </ScrollView>
-      </StoreProvider>
+        </View>
+      </Provider>
     </SafeAreaView>
   );
 }

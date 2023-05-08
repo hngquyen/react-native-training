@@ -2,26 +2,17 @@ import {Image, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import styles from './styles';
 import {GroupCount, filterList} from './constants';
-import {StoreContext} from 'components/StoreProvider';
 import AppText from 'components/AppText/AppText';
-import {ActionType} from 'src/store/type';
+import {useAppDispatch, useAppSelector} from 'src/store/hooks';
+import {metricStatsActions} from 'src/features/metricStats/metricStatsSlice';
 
 const MetricStats: React.FC = () => {
   const [filterKey, setFilterKey] = React.useState(GroupCount.Time_24_hours);
-  const {state, dispatch} = React.useContext(StoreContext);
-  const data = state.dashBoard.metricStats;
+  const dispatch = useAppDispatch();
+  const data = useAppSelector(state => state.metricsStats.data);
 
   React.useEffect(() => {
-    fetch(
-      `https://data.thetanarena.com/thetan/v1/mkpdashboard/metric/getmetricstats?groupCount=${filterKey}`,
-    )
-      .then(response => response.json())
-      .then(dataResponse => {
-        dispatch({
-          type: ActionType.DASHBOARD_UPDATE_METRIC_STATS,
-          payload: dataResponse.data,
-        });
-      });
+    dispatch(metricStatsActions.fetchData(filterKey));
   }, [dispatch, filterKey]);
   return (
     <View style={styles.root}>

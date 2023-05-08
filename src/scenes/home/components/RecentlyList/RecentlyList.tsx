@@ -2,9 +2,9 @@ import {Image, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import styles from './styles';
 import {RecentlyTab, categoryMap} from './constants';
-import AppText from '~/components/AppText/AppText';
 import HeroRecently from './components/HeroRecently/HeroRecently';
 import CosmeticRecently from './components/CosmeticRecently/CosmeticRecently';
+import AppText from 'components/AppText/AppText';
 
 const RecentlyList: React.FC = () => {
   const [recentlyTab, setRecentlyTab] = React.useState(RecentlyTab.HERO);

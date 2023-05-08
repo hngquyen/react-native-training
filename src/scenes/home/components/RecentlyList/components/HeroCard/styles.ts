@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {normalize} from '~/utils/utils';
+import {normalize} from 'src/utils/utils';
 
 export default StyleSheet.create({
   item: {

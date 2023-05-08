@@ -1,4 +1,4 @@
-import {ScrollView, StyleSheet} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import React from 'react';
 import Banner from './components/Banner/Banner';
 import MetricStats from './components/MetricStats/MetricStats';
@@ -6,11 +6,11 @@ import RecentlyList from './components/RecentlyList/RecentlyList';
 
 const HomePage = () => {
   return (
-    <ScrollView style={styles.root}>
+    <View style={styles.root}>
       <Banner />
       <MetricStats />
       <RecentlyList />
-    </ScrollView>
+    </View>
   );
 };
 
