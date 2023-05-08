@@ -8,11 +8,12 @@ import AppText from 'components/AppText/AppText';
 
 type Props = {
   data: HeroItemType;
+  onPress?: () => void;
 };
-const HeroCard: React.FC<Props> = ({data}) => {
+const HeroCard: React.FC<Props> = ({data, onPress}) => {
   return (
     <View>
-      <TouchableOpacity style={styles.item}>
+      <TouchableOpacity style={styles.item} onPress={onPress}>
         <Image
           style={styles.avatarImg}
           source={{uri: toImageUri(data.imageAvatar)}}
