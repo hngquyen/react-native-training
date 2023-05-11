@@ -1,18 +1,19 @@
 import {Image, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import styles from './styles';
-import {toImageUri} from '~/utils/utils';
-import AppText from '~/components/AppText/AppText';
-import {HeroItemType} from '~/models';
 import LinearGradient from 'react-native-linear-gradient';
+import {toImageUri} from 'src/utils/utils';
+import {HeroItemType} from 'src/models';
+import AppText from 'components/AppText/AppText';
 
 type Props = {
   data: HeroItemType;
+  onPress?: () => void;
 };
-const HeroCard: React.FC<Props> = ({data}) => {
+const HeroCard: React.FC<Props> = ({data, onPress}) => {
   return (
     <View>
-      <TouchableOpacity style={styles.item}>
+      <TouchableOpacity style={styles.item} onPress={onPress}>
         <Image
           style={styles.avatarImg}
           source={{uri: toImageUri(data.imageAvatar)}}

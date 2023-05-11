@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {normalize} from '~/utils/utils';
+import {normalize} from 'src/utils/utils';
 
 export default StyleSheet.create({
   root: {
@@ -17,7 +17,6 @@ export default StyleSheet.create({
   header: {
     marginTop: normalize(16),
     display: 'flex',
-    flex: 1,
     flexDirection: 'row',
     alignItems: 'flex-end',
   },
