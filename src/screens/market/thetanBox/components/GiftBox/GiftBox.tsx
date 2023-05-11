@@ -14,7 +14,7 @@ const GiftBox: React.FC<Props> = ({data}) => {
       <View style={styles.header}>
         <Image
           style={styles.bgImage}
-          source={require('../../../../../assets/svg/bg_giftbox.svg')}
+          source={require('../../../../../../assets/svg/bg_giftbox.svg')}
         />
         <Text style={styles.headerText}>Gift Box</Text>
       </View>

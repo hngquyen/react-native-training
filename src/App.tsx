@@ -5,7 +5,7 @@ import {Provider} from 'react-redux';
 import store from './store';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import HomeTabNavigator from './router/HomeTabNavigator';
+import HomeTabNavigator from './routers/HomeTabNavigator';
 import DetailPage from './screens/detailPage/DetailPage';
 
 const RootStack = createNativeStackNavigator();
@@ -42,7 +42,7 @@ function App(): JSX.Element {
               name="DetailPage"
               component={DetailPage}
               options={{
-                title: 'Detail Page',
+                title: '',
                 headerStyle: {
                   backgroundColor: '#5336D0',
                 },

@@ -1,5 +1,5 @@
-import {normalize} from '~/utils/utils';
 import {StyleSheet} from 'react-native';
+import {normalize} from 'src/utils/utils';
 
 export default StyleSheet.create({
   root: {
@@ -15,7 +15,6 @@ export default StyleSheet.create({
     zIndex: 1,
     display: 'flex',
     alignSelf: 'center',
-    // width: normalize(140),
     width: normalize(140),
     aspectRatio: 160 / 77,
   },

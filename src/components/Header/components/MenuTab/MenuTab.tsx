@@ -1,39 +1,50 @@
 import React from 'react';
 import {View, TouchableOpacity, FlatList} from 'react-native';
 import styles from './styles';
-import {configMenuTab} from './constants';
 import AppText from 'components/AppText/AppText';
 
 const Separator: React.FC = () => {
   return <View style={styles.bar} />;
 };
 
-const MenuTab: React.FC = () => {
-  const [activeTab, setActiveTab] = React.useState(configMenuTab[0].tab);
+type Props = {
+  navigationState: {
+    index: number;
+    routes: {
+      key: string;
+      title: string;
+    }[];
+  };
+  setIndex: React.Dispatch<React.SetStateAction<number>>;
+};
+
+const MenuTab: React.FC<Props> = ({navigationState, setIndex}) => {
   const flatListRef = React.useRef<FlatList>(null);
   return (
     <View>
       <FlatList
         ref={flatListRef}
-        data={configMenuTab}
+        data={navigationState.routes}
         horizontal={true}
         ItemSeparatorComponent={Separator}
         renderItem={({item, index}) => {
           return (
             <TouchableOpacity
-              key={item.tab}
+              key={item.key}
               activeOpacity={0.75}
               onPress={() => {
                 flatListRef.current?.scrollToIndex({index});
-                setActiveTab(item.tab);
+                setIndex(index);
               }}>
               <View
                 style={[
                   styles.tabItem,
-                  activeTab === item.tab ? styles.activeTab : null,
+                  index === navigationState.index ? styles.activeTab : null,
                 ]}>
-                <AppText style={styles.textItem}>{item.title}</AppText>
-                {item.isNotify && <View style={styles.dot} />}
+                <AppText style={styles.textItem}>
+                  {navigationState.routes[index].title}
+                </AppText>
+                {/* {item.isNotify && <View style={styles.dot} />} */}
               </View>
             </TouchableOpacity>
           );

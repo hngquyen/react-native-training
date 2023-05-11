@@ -3,12 +3,10 @@ import React from 'react';
 import Banner from './components/Banner/Banner';
 import MetricStats from './components/MetricStats/MetricStats';
 import RecentlyList from './components/RecentlyList/RecentlyList';
-import MenuTab from 'components/Header/components/MenuTab/MenuTab';
 
-const HomePage = () => {
+const HomePage: React.FC = () => {
   return (
     <View style={{flex: 1, display: 'flex'}}>
-      <MenuTab />
       <ScrollView style={styles.root}>
         <Banner />
         <MetricStats />

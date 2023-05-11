@@ -8,11 +8,12 @@ import AppText from 'components/AppText/AppText';
 
 type Props = {
   data: HeroItemType;
+  onPress?: () => void;
 };
-const CosmeticCard: React.FC<Props> = ({data}) => {
+const HeroCard: React.FC<Props> = ({data, onPress}) => {
   return (
     <View>
-      <TouchableOpacity style={styles.item}>
+      <TouchableOpacity style={styles.item} onPress={onPress}>
         <Image
           style={styles.avatarImg}
           source={{uri: toImageUri(data.imageAvatar)}}
@@ -57,7 +58,7 @@ const CosmeticCard: React.FC<Props> = ({data}) => {
                 <Image
                   style={styles.thcIcon}
                   alt="thcIcon"
-                  source={require('../../../../../../../assets/img/ic_thc.png')}
+                  source={require('../../../../../../../../assets/img/ic_thc.png')}
                 />
                 <AppText style={styles.thcText}>
                   {data.price / Math.pow(10, 8)} THC
@@ -75,4 +76,4 @@ const CosmeticCard: React.FC<Props> = ({data}) => {
   );
 };
 
-export default CosmeticCard;
+export default HeroCard;

@@ -5,7 +5,7 @@ import {
 import CustomTabBar from 'components/CustomTabBar/CustomTabBar';
 import React from 'react';
 import EventPage from 'src/screens/eventPage/EventPage';
-import HomePage from 'src/screens/home/HomePage';
+import MarketTab from 'src/screens/market/MarketTab';
 
 const Tab = createBottomTabNavigator();
 const icShop = require('../../assets/img/ic_shop.png');
@@ -23,7 +23,7 @@ const HomeTabNavigator = () => {
     <Tab.Navigator screenOptions={{headerShown: false}} tabBar={BottomTab}>
       <Tab.Screen
         name="Market"
-        component={HomePage}
+        component={MarketTab}
         options={{tabBarLabel: 'Market', tabBarIcon: icShop}}
       />
       <Tab.Screen

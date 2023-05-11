@@ -7,11 +7,11 @@ export const categoryMap = [
   {
     id: RecentlyTab.HERO,
     title: 'Heroes',
-    img: require('../../../../../assets/img/ic_hero.png'),
+    img: require('../../../../../../assets/img/ic_hero.png'),
   },
   {
     id: RecentlyTab.COSMETIC,
     title: 'Cosmetic',
-    img: require('../../../../../assets/img/ic_cosmetic.png'),
+    img: require('../../../../../../assets/img/ic_cosmetic.png'),
   },
 ];

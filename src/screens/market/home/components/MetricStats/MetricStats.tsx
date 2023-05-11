@@ -32,7 +32,7 @@ const MetricStats: React.FC = () => {
         <View style={styles.item}>
           <Image
             style={styles.icon}
-            source={require('../../../../../assets/img/ic_totalListed.png')}
+            source={require('../../../../../../assets/img/ic_totalListed.png')}
           />
           <View style={styles.right}>
             <View style={styles.wrapLabel}>
@@ -44,7 +44,7 @@ const MetricStats: React.FC = () => {
         <View style={styles.item}>
           <Image
             style={styles.icon}
-            source={require('../../../../../assets/img/ic_transVolume.png')}
+            source={require('../../../../../../assets/img/ic_transVolume.png')}
           />
           <View style={styles.right}>
             <View style={styles.wrapLabel}>
@@ -56,7 +56,7 @@ const MetricStats: React.FC = () => {
         <View style={styles.item}>
           <Image
             style={styles.icon}
-            source={require('../../../../../assets/img/ic_itemsTraded.png')}
+            source={require('../../../../../../assets/img/ic_itemsTraded.png')}
           />
           <View style={styles.right}>
             <View style={styles.wrapLabel}>

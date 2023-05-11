@@ -1,17 +1,17 @@
 import {View, Image} from 'react-native';
 import React from 'react';
 import styles from './styles';
-import type {GiftBoxType} from '../../constants';
-import {toImageUri} from '~/utils/utils';
-import AppText from '~/components/AppText/AppText';
+import type {SystemBoxType} from '../../constants';
+import AppText from 'components/AppText/AppText';
+import {toImageUri} from 'src/utils/utils';
 
 type Props = {
-  data: GiftBoxType;
+  data: SystemBoxType;
 };
 
-const GiftBoxCard: React.FC<Props> = ({data}) => {
+const BoxCard: React.FC<Props> = ({data}) => {
   return (
-    <View style={[styles.root, data.isLimited && styles.limited]}>
+    <View style={styles.root}>
       <Image style={styles.bgPath} source={{uri: toImageUri(data.bgPath)}} />
       <Image style={styles.imgPath} source={{uri: toImageUri(data.imgPath)}} />
       <View style={styles.content}>
@@ -27,4 +27,4 @@ const GiftBoxCard: React.FC<Props> = ({data}) => {
   );
 };
 
-export default GiftBoxCard;
+export default BoxCard;
