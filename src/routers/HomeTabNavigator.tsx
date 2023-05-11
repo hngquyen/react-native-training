@@ -6,6 +6,7 @@ import CustomTabBar from 'components/CustomTabBar/CustomTabBar';
 import React from 'react';
 import EventPage from 'src/screens/eventPage/EventPage';
 import MarketTab from 'src/screens/market/MarketTab';
+import Menu from 'src/screens/menu/Menu';
 
 const Tab = createBottomTabNavigator();
 const icShop = require('../../assets/img/ic_shop.png');
@@ -43,7 +44,7 @@ const HomeTabNavigator = () => {
       />
       <Tab.Screen
         name="Menu"
-        component={EventPage}
+        component={Menu}
         options={{tabBarLabel: 'Menu', tabBarIcon: icMenu}}
       />
     </Tab.Navigator>

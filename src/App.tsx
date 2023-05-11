@@ -7,6 +7,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import HomeTabNavigator from './routers/HomeTabNavigator';
 import DetailPage from './screens/detailPage/DetailPage';
+import Profile from './screens/menu/components/Profile/Profile';
 
 const RootStack = createNativeStackNavigator();
 
@@ -43,6 +44,21 @@ function App(): JSX.Element {
               component={DetailPage}
               options={{
                 title: '',
+                headerStyle: {
+                  backgroundColor: '#5336D0',
+                },
+                headerTitleAlign: 'center',
+                headerTintColor: '#fff',
+                headerTitleStyle: {
+                  fontFamily: 'Oxanium-Bold',
+                },
+              }}
+            />
+            <RootStack.Screen
+              name="Profile"
+              component={Profile}
+              options={{
+                title: 'Profile',
                 headerStyle: {
                   backgroundColor: '#5336D0',
                 },
