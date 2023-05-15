@@ -21,7 +21,18 @@ const HomeTabNavigator = () => {
     [],
   );
   return (
-    <Tab.Navigator screenOptions={{headerShown: false}} tabBar={BottomTab}>
+    <Tab.Navigator
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: '#5336D0',
+        },
+        headerTitleAlign: 'center',
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontFamily: 'Oxanium-Bold',
+        },
+      }}
+      tabBar={BottomTab}>
       <Tab.Screen
         name="Market"
         component={MarketTab}

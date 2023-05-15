@@ -27,17 +27,7 @@ function App(): JSX.Element {
             <RootStack.Screen
               name="Home"
               component={HomeTabNavigator}
-              options={{
-                title: 'Market',
-                headerStyle: {
-                  backgroundColor: '#5336D0',
-                },
-                headerTitleAlign: 'center',
-                headerTintColor: '#fff',
-                headerTitleStyle: {
-                  fontFamily: 'Oxanium-Bold',
-                },
-              }}
+              options={{headerShown: false}}
             />
             <RootStack.Screen
               name="DetailPage"
