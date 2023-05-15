@@ -2,7 +2,7 @@ import React from 'react';
 import AppText from 'components/AppText/AppText';
 import {BottomTabBarProps} from '@react-navigation/bottom-tabs';
 
-import {Image, TouchableOpacity, View} from 'react-native';
+import {Image, ImageSourcePropType, TouchableOpacity, View} from 'react-native';
 import {normalize} from 'src/utils/utils';
 
 const CustomTabBar: React.FC<BottomTabBarProps> = ({
@@ -34,6 +34,7 @@ const CustomTabBar: React.FC<BottomTabBarProps> = ({
           const event = navigation.emit({
             type: 'tabPress',
             target: route.key,
+            canPreventDefault: true,
           });
 
           if (!isFocused && !event.defaultPrevented) {
@@ -58,7 +59,11 @@ const CustomTabBar: React.FC<BottomTabBarProps> = ({
             onLongPress={onLongPress}
             style={{flex: 1, alignItems: 'center'}}>
             <Image
-              source={require('../../../assets/img/ic_shop.png')}
+              source={
+                options.tabBarIcon
+                  ? (options.tabBarIcon as ImageSourcePropType)
+                  : require('../../../assets/img/ic_thc.png')
+              }
               alt="iconTab"
               style={{
                 width: normalize(20),
@@ -67,7 +72,7 @@ const CustomTabBar: React.FC<BottomTabBarProps> = ({
               }}
             />
             <AppText style={{color: isFocused ? '#795CF5' : '#FFFFFF'}}>
-              {label}
+              {label.toString()}
             </AppText>
           </TouchableOpacity>
         );
