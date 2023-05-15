@@ -8,6 +8,10 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import HomeTabNavigator from './routers/HomeTabNavigator';
 import DetailPage from './screens/detailPage/DetailPage';
 import Profile from './screens/menu/components/Profile/Profile';
+import {
+  notificationListener,
+  requestUserPermission,
+} from './utils/notifications';
 
 const RootStack = createNativeStackNavigator();
 
@@ -17,6 +21,10 @@ function App(): JSX.Element {
     flex: 1,
   };
 
+  React.useEffect(() => {
+    requestUserPermission();
+    notificationListener();
+  }, []);
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar />
