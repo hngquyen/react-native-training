@@ -7,6 +7,35 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:717591570196:android:f480cf72f39ef170ea4401",
+        "android_client_info": {
+          "package_name": "com.training"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "717591570196-omclbsvblo7uqj5gc2hc8kt7209v6orj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCaGnSd90eFerYX3NePfnQOg8Lfd5roJv0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "717591570196-omclbsvblo7uqj5gc2hc8kt7209v6orj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:717591570196:android:2057d29c928e9530ea4401",
         "android_client_info": {
           "package_name": "com.trainingreactnative"
