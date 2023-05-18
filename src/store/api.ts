@@ -11,11 +11,11 @@ export const getBanner = async () => {
   // if (response.data) {
   //   return response.data.listBanner;
   // }
-  const res = await axiosDefault<BannerType>({
-    url: 'https://data.staging.thetanarena.com/theta/v1/mkpdashboard/banner/getlist',
+  const response = await axiosDefault<BannerType>({
+    url: 'https://data.thetanarena.com/theta/v1/mkpdashboard/banner/getlist',
   });
-  if (res.data?.listBanner && !res.status) {
-    return res.data.listBanner;
+  if (response.data && !response.status) {
+    return response.data.listBanner;
   }
   return undefined;
 };
