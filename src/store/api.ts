@@ -1,22 +1,21 @@
-import axiosDefault from 'src/https/base';
 import {BannerType, HeroItemType} from 'src/models';
 import {GroupCount} from 'src/screens/market/home/components/MetricStats/constants';
 import {callApi} from 'src/utils/fetch';
 
 export const getBanner = async () => {
-  // const response = await callApi<{listBanner: BannerType[]}>(
-  //   'https://data.thetanarena.com/thetan/v1/mkpdashboard/banner/getlist',
-  // );
+  const response = await callApi<{listBanner: BannerType[]}>(
+    'https://data.thetanarena.com/thetan/v1/mkpdashboard/banner/getlist',
+  );
 
-  // if (response.data) {
-  //   return response.data.listBanner;
-  // }
-  const response = await axiosDefault<BannerType>({
-    url: 'https://data.thetanarena.com/theta/v1/mkpdashboard/banner/getlist',
-  });
-  if (response.data && !response.status) {
+  if (response.data) {
     return response.data.listBanner;
   }
+  //   const response = await axiosDefault<BannerType>({
+  //     url: 'https://data.thetanarena.com/theta/v1/mkpdashboard/banner/getlist',
+  //   });
+  // if (response.data && !response.status) {
+  //   return response.data.listBanner;
+  // }
   return undefined;
 };
 

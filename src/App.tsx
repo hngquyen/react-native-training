@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React from 'react';
 import {SafeAreaView, StatusBar} from 'react-native';
 import ModalNotification from './components/ModalNotification/ModalNotification';
@@ -9,9 +10,10 @@ import HomeTabNavigator from './routers/HomeTabNavigator';
 import DetailPage from './screens/detailPage/DetailPage';
 import Profile from './screens/menu/components/Profile/Profile';
 import {
-  notificationListener,
+  // notificationListener,
   requestUserPermission,
 } from './utils/notifications';
+import messaging from '@react-native-firebase/messaging';
 
 const RootStack = createNativeStackNavigator();
 
@@ -23,7 +25,42 @@ function App(): JSX.Element {
 
   React.useEffect(() => {
     requestUserPermission();
-    notificationListener();
+    // notificationListener();
+    messaging().onNotificationOpenedApp(remoteMessage => {
+      console.log(
+        'Notification caused app to open from background state:',
+        remoteMessage.notification,
+      );
+      // navigation.navigate(remoteMessage.data.type);
+    });
+
+    messaging().setBackgroundMessageHandler(async remoteMessage => {
+      console.log(
+        'Notification caused app to open from background state 2:',
+        remoteMessage.notification,
+      );
+      // navigation.navigate(remoteMessage.data.type);
+    });
+
+    messaging()
+      .getInitialNotification()
+      .then(remoteMessage => {
+        if (remoteMessage) {
+          console.log(
+            'Notification caused app to open from quit state:',
+            remoteMessage.notification,
+          );
+          // setInitialRoute(remoteMessage.data.type);
+        }
+        //   setLoading(false);
+      });
+
+    messaging().onMessage(async remoteMessage => {
+      console.log(
+        'notification on foreground state...',
+        remoteMessage.notification,
+      );
+    });
   }, []);
   return (
     <SafeAreaView style={backgroundStyle}>
