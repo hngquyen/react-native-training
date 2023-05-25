@@ -17,7 +17,7 @@ type Props = {
 
 const NumberCard: React.FC<Props> = ({number}) => {
   const rotateFront = useSharedValue(0);
-  const rotateBack = useSharedValue(-180);
+  const rotateBack = useSharedValue(180);
 
   const animatedFrontStyle = useAnimatedStyle(() => {
     return {
@@ -29,41 +29,45 @@ const NumberCard: React.FC<Props> = ({number}) => {
     };
   });
 
-  // const animatedBackStyle = useAnimatedStyle(() => {
-  //   return {
-  //     transform: [
-  //       {
-  //         rotateX: `${rotateBack.value}deg`,
-  //       },
-  //     ],
-  //   };
-  // });
+  const animatedBackStyle = useAnimatedStyle(() => {
+    return {
+      transform: [
+        {
+          rotateX: `${rotateBack.value}deg`,
+        },
+      ],
+    };
+  });
 
   React.useEffect(() => {
-    rotateFront.value = withTiming(rotateFront.value + 360, {
-      duration: 900,
+    rotateFront.value = withTiming(rotateFront.value + 180, {
+      duration: 500,
       easing: Easing.linear,
     });
-    rotateBack.value = withTiming(rotateBack.value + 360, {
-      duration: 900,
-      easing: Easing.linear,
-    });
-  }, [number, rotateFront, rotateBack]);
+  }, [number, rotateFront]);
 
+  React.useEffect(() => {
+    rotateBack.value = withTiming(rotateBack.value + 180, {
+      duration: 500,
+      easing: Easing.linear,
+    });
+  }, [number, rotateBack]);
+
+  // TODO: Handle time unit previous
   return (
     <View style={styles.unitContainer}>
       <View style={styles.frontCard}>
-        <AppText style={styles.text}>{number}</AppText>
+        <AppText style={[styles.text, styles.frontText]}>{number}</AppText>
       </View>
       <View style={[styles.backCard]}>
-        <AppText style={styles.text}>{number - 1}</AppText>
+        <AppText style={[styles.text, styles.backText]}>{number + 1}</AppText>
       </View>
       <Animated.View style={[styles.front, animatedFrontStyle]}>
         <AppText style={styles.text}>{number}</AppText>
       </Animated.View>
-      {/* <Animated.View style={[styles.back, animatedBackStyle]}>
-        <AppText style={styles.text}>{number - 1}</AppText>
-      </Animated.View> */}
+      <Animated.View style={[styles.back, animatedBackStyle]}>
+        <AppText style={styles.text}>{number}</AppText>
+      </Animated.View>
     </View>
   );
 };
@@ -85,17 +89,6 @@ const styles = StyleSheet.create({
   },
   backCard: {
     position: 'absolute',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  frontCard: {
-    position: 'absolute',
     bottom: 0,
     left: 0,
     width: '100%',
@@ -104,6 +97,30 @@ const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+
+    zIndex: 0,
+    backgroundColor: 'black',
+    borderRadius: normalize(8),
+  },
+  frontCard: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '50%',
+
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: 1,
+    backgroundColor: 'black',
+    borderRadius: normalize(8),
+  },
+  frontText: {
+    transform: [{translateY: 0}],
+  },
+  backText: {
+    // transform: [{translateY: 32}],
   },
   front: {
     position: 'absolute',
@@ -138,5 +155,6 @@ const styles = StyleSheet.create({
   text: {
     fontSize: normalize(32),
     fontWeight: '700',
+    lineHeight: normalize(64),
   },
 });
