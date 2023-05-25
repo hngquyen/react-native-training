@@ -2,8 +2,9 @@ import React from 'react';
 import {View, StyleSheet} from 'react-native';
 
 import useCountdown from 'src/hooks/useCountdown';
-import TimeUnit from './components/TimeUnit/TimeUnit';
+import FlipNumber from './components/FlipNumber/FlipNumber';
 import {normalize} from 'src/utils/utils';
+import {TimeUnits} from './config';
 
 const Countdown = () => {
   const epochTime = 1695003310;
@@ -20,9 +21,18 @@ const Countdown = () => {
       {/* <TimeUnit time={parseTimeToString(countdown.year)} />
       <TimeUnit time={parseTimeToString(countdown.month)} /> */}
       {/* <TimeUnit time={parseTimeToString(countdown.day)} /> */}
-      <TimeUnit time={parseTimeToString(countdown.hour)} />
-      <TimeUnit time={parseTimeToString(countdown.minute)} />
-      <TimeUnit time={parseTimeToString(countdown.second)} />
+      <FlipNumber
+        time={parseTimeToString(countdown.hour)}
+        type={TimeUnits.HOUR}
+      />
+      <FlipNumber
+        time={parseTimeToString(countdown.minute)}
+        type={TimeUnits.MINUTE}
+      />
+      <FlipNumber
+        time={parseTimeToString(countdown.second)}
+        type={TimeUnits.SECOND}
+      />
     </View>
   );
 };
