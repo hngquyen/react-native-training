@@ -1,5 +1,5 @@
 import {BannerType, HeroItemType} from 'src/models';
-import {GroupCount} from 'src/scenes/home/components/MetricStats/constants';
+import {GroupCount} from 'src/screens/market/home/components/MetricStats/constants';
 import {callApi} from 'src/utils/fetch';
 
 export const getBanner = async () => {
@@ -10,6 +10,12 @@ export const getBanner = async () => {
   if (response.data) {
     return response.data.listBanner;
   }
+  //   const response = await axiosDefault<BannerType>({
+  //     url: 'https://data.thetanarena.com/theta/v1/mkpdashboard/banner/getlist',
+  //   });
+  // if (response.data && !response.status) {
+  //   return response.data.listBanner;
+  // }
   return undefined;
 };
 

@@ -1,9 +1,10 @@
 import {Image, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import AppText from 'components/AppText/AppText';
-import {useNavigation} from '@react-navigation/native';
+import {ParamListBase, useNavigation} from '@react-navigation/native';
 import styles from './styles';
 import {tabContainerMap} from './config';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 const icAvatar = require('../../../assets/img/avatar.png');
 const icMetaMask = require('../../../assets/img/ic_metamask.png');
@@ -11,7 +12,7 @@ const icCopy = require('../../../assets/img/ic_copy.png');
 const icArrow = require('../../../assets/img/ic_arrow.png');
 
 const Menu: React.FC = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
 
   return (
     <View style={styles.root}>

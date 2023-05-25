@@ -4,14 +4,15 @@ import React from 'react';
 import styles from './styles';
 import AppText from 'components/AppText/AppText';
 import {tabContainerMap} from './config';
-import {useNavigation} from '@react-navigation/native';
+import {ParamListBase, useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 const icAvatar = require('../../../../../assets/img/avatar.png');
 const icCopy = require('../../../../../assets/img/ic_copy.png');
 const icArrow = require('../../../../../assets/img/ic_arrow.png');
 // const icHexagon = require('../../../../../assets/img/ic_hexagon.png');
 
 const Profile: React.FC = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
 
   return (
     <View style={styles.root}>
